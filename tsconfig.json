@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    // "lib": [],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDirs": [ "src" ],
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./bin",
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "strict": true,
+    "alwaysStrict": true
+  }
+}
