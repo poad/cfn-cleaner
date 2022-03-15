@@ -1,5 +1,10 @@
 import {
-  CloudFormationClient, DeleteStackCommand, ListStacksCommand, StackStatus, StackSummary, waitUntilStackDeleteComplete
+  CloudFormationClient,
+  DeleteStackCommand,
+  ListStacksCommand,
+  StackStatus,
+  StackSummary,
+  waitUntilStackDeleteComplete,
 } from '@aws-sdk/client-cloudformation';
 import * as fs from 'fs';
 import readline from 'readline';
@@ -43,6 +48,7 @@ const confirm = async (): Promise<boolean> => {
   return confirm();
 };
 
+// eslint-disable-next-line max-len
 const listStacks = async (client: CloudFormationClient, nextToeken: string | undefined = undefined): Promise<StackSummary[]> => {
   const response = await client.send(new ListStacksCommand({
     StackStatusFilter: [
@@ -133,16 +139,15 @@ const argConfig = {
   ...aliases,
 };
 
-const sleep = async (time: number) => {
-  return new Promise<void>((resolve, __reject) => {
-    setTimeout(() => {
-      resolve();
-    }, time);
-  });
-}
+const sleep = async (time: number) => new Promise<void>((resolve) => {
+  setTimeout(() => {
+    resolve();
+  }, time);
+});
 
 function arrayChunk<T>([...array]: T[], size: number = 1): T[][] {
-  return array.reduce((acc, __value, index) => index % size ? acc : [...acc, array.slice(index, index + size)], [] as T[][]);
+  // eslint-disable-next-line max-len
+  return array.reduce((acc, __value, index) => (index % size ? acc : [...acc, array.slice(index, index + size)]), [] as T[][]);
 }
 
 try {
@@ -182,31 +187,35 @@ try {
     .reduce((acc, cur) => `${acc}\n${cur}`)}`);
 
   if (await confirm()) {
+    /* eslint-disable no-shadow */
     const stackNames = stacks
       .map((stack) => stack.StackName)
-      .filter(stackNames => stackNames !== undefined);
+      .filter((stackNames) => stackNames !== undefined);
+    /* eslint-enable no-shadow */
 
+    /* eslint-disable no-shadow */
     const resps = arrayChunk<string>(stackNames as string[], 10)
       .flatMap(
         (stackNames) => {
           const resps = stackNames.map(async (StackName) => {
             logger.debug(`stack: ${StackName}`);
-            return sleep(3000).then( async() => {
+            return sleep(3000).then(async () => {
               const resp = await client.send(new DeleteStackCommand({
                 StackName,
               }))
                 .catch(
-                  e => {
+                  (e) => {
                     logger.error(e);
-                  }
+                  },
                 );
               await waitUntilStackDeleteComplete({ client, maxWaitTime: 60 * 3 }, { StackName });
-              return resp
+              return resp;
             });
           });
           return resps;
-        }
+        },
       );
+    /* eslint-enable no-shadow */
 
     Promise.all(resps).then(() => logger.info('done'));
   } else {
