@@ -22,7 +22,7 @@
     "all": "yarn build && yarn lint && yarn test"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.56",
+    "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.172",
     "@swc/helpers": "^0.3.8",
     "@swc/jest": "^0.2.20",
@@ -38,13 +38,13 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^28.0.1",
+    "jest": "^28.0.2",
     "prettier": "^2.6.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.78.0",
+    "@aws-sdk/client-cloudformation": "^3.79.0",
     "arg": "^5.0.1",
     "chalk": "^5.0.1",
     "chalk-template": "^0.4.0",
