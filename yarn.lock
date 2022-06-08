@@ -3153,6 +3153,21 @@ jest-message-util@^28.1.0, jest-message-util@^28.1.1:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
+jest-message-util@^28.1.1:
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/jest-message-util/-/jest-message-util-28.1.1.tgz#60aa0b475cfc08c8a9363ed2fb9108514dd9ab89"
+  integrity sha512-xoDOOT66fLfmTRiqkoLIU7v42mal/SqwDKvfmfiWAdJMSJiU+ozgluO7KbvoAgiwIrrGZsV7viETjc8GNrA/IQ==
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@jest/types" "^28.1.1"
+    "@types/stack-utils" "^2.0.0"
+    chalk "^4.0.0"
+    graceful-fs "^4.2.9"
+    micromatch "^4.0.4"
+    pretty-format "^28.1.1"
+    slash "^3.0.0"
+    stack-utils "^2.0.3"
+
 jest-mock@^28.1.0:
   version "28.1.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-28.1.0.tgz#ccc7cc12a9b330b3182db0c651edc90d163ff73e"
@@ -3338,17 +3353,17 @@ jest-validate@^28.1.1:
     pretty-format "^28.1.1"
 
 jest-watcher@^28.1.0:
-  version "28.1.0"
-  resolved "https://registry.yarnpkg.com/jest-watcher/-/jest-watcher-28.1.0.tgz#aaa7b4164a4e77eeb5f7d7b25ede5e7b4e9c9aaf"
-  integrity sha512-tNHMtfLE8Njcr2IRS+5rXYA4BhU90gAOwI9frTGOqd+jX0P/Au/JfRSNqsf5nUTcWdbVYuLxS1KjnzILSoR5hA==
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/jest-watcher/-/jest-watcher-28.1.1.tgz#533597fb3bfefd52b5cd115cd916cffd237fb60c"
+  integrity sha512-RQIpeZ8EIJMxbQrXpJQYIIlubBnB9imEHsxxE41f54ZwcqWLysL/A0ZcdMirf+XsMn3xfphVQVV4EW0/p7i7Ug==
   dependencies:
-    "@jest/test-result" "^28.1.0"
-    "@jest/types" "^28.1.0"
+    "@jest/test-result" "^28.1.1"
+    "@jest/types" "^28.1.1"
     "@types/node" "*"
     ansi-escapes "^4.2.1"
     chalk "^4.0.0"
     emittery "^0.10.2"
-    jest-util "^28.1.0"
+    jest-util "^28.1.1"
     string-length "^4.0.1"
 
 jest-worker@^28.1.0:
@@ -3794,6 +3809,16 @@ pretty-format@^27.0.0, pretty-format@^27.5.1:
     react-is "^17.0.1"
 
 pretty-format@^28.1.0, pretty-format@^28.1.1:
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-28.1.1.tgz#f731530394e0f7fcd95aba6b43c50e02d86b95cb"
+  integrity sha512-wwJbVTGFHeucr5Jw2bQ9P+VYHyLdAqedFLEkdQUVaBF/eiidDwH5OpilINq4mEfhbCjLnirt6HTTDhv1HaTIQw==
+  dependencies:
+    "@jest/schemas" "^28.0.2"
+    ansi-regex "^5.0.1"
+    ansi-styles "^5.0.0"
+    react-is "^18.0.0"
+
+pretty-format@^28.1.1:
   version "28.1.1"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-28.1.1.tgz#f731530394e0f7fcd95aba6b43c50e02d86b95cb"
   integrity sha512-wwJbVTGFHeucr5Jw2bQ9P+VYHyLdAqedFLEkdQUVaBF/eiidDwH5OpilINq4mEfhbCjLnirt6HTTDhv1HaTIQw==
