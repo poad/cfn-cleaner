@@ -1101,18 +1101,6 @@
     expect "^28.1.1"
     jest-snapshot "^28.1.2"
 
-"@jest/fake-timers@^28.1.1":
-  version "28.1.1"
-  resolved "https://registry.yarnpkg.com/@jest/fake-timers/-/fake-timers-28.1.1.tgz#47ce33296ab9d680c76076d51ddbe65ceb3337f1"
-  integrity sha512-BY/3+TyLs5+q87rGWrGUY5f8e8uC3LsVHS9Diz8+FV3ARXL4sNnkLlIB8dvDvRrp+LUCGM+DLqlsYubizGUjIA==
-  dependencies:
-    "@jest/types" "^28.1.1"
-    "@sinonjs/fake-timers" "^9.1.1"
-    "@types/node" "*"
-    jest-message-util "^28.1.1"
-    jest-mock "^28.1.1"
-    jest-util "^28.1.1"
-
 "@jest/fake-timers@^28.1.2":
   version "28.1.2"
   resolved "https://registry.yarnpkg.com/@jest/fake-timers/-/fake-timers-28.1.2.tgz#d49e8ee4e02ba85a6e844a52a5e7c59c23e3b76f"
@@ -1355,7 +1343,7 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sinonjs/fake-timers@^9.1.1", "@sinonjs/fake-timers@^9.1.2":
+"@sinonjs/fake-timers@^9.1.2":
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-9.1.2.tgz#4eaab737fab77332ab132d396a3c0d364bd0ea8c"
   integrity sha512-BPS4ynJW/o92PUR4wgriz2Ud5gpST5vz6GQfMixEDK0Z8ZCUv2M7SkBLykH56T++Xs+8ln9zTGbOvNGIe02/jw==
@@ -3075,12 +3063,12 @@ jest-each@^28.1.1:
     pretty-format "^28.1.1"
 
 jest-environment-node@^28.1.1:
-  version "28.1.1"
-  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-28.1.1.tgz#1c86c59003a7d319fa06ea3b1bbda6c193715c67"
-  integrity sha512-2aV/eeY/WNgUUJrrkDJ3cFEigjC5fqT1+fCclrY6paqJ5zVPoM//sHmfgUUp7WLYxIdbPwMiVIzejpN56MxnNA==
+  version "28.1.2"
+  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-28.1.2.tgz#3e2eb47f6d173b0648d5f7c717cb1c26651d5c8a"
+  integrity sha512-oYsZz9Qw27XKmOgTtnl0jW7VplJkN2oeof+SwAwKFQacq3CLlG9u4kTGuuLWfvu3J7bVutWlrbEQMOCL/jughw==
   dependencies:
-    "@jest/environment" "^28.1.1"
-    "@jest/fake-timers" "^28.1.1"
+    "@jest/environment" "^28.1.2"
+    "@jest/fake-timers" "^28.1.2"
     "@jest/types" "^28.1.1"
     "@types/node" "*"
     jest-mock "^28.1.1"
