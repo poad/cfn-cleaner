@@ -19,6 +19,7 @@
     "build": "yarn clean && yarn compile",
     "lint": "eslint src/**/*.mts src/*.mts",
     "start": "node --experimental-specifier-resolution=node bin/cli.mjs",
+    "package": "echo Skip the packaging process",
     "all": "yarn build && yarn lint && yarn test"
   },
   "devDependencies": {
