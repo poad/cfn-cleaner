@@ -50,5 +50,9 @@
     "chalk": "*",
     "chalk-template": "*",
     "log4js": "*"
+  },
+  "resolutions": {
+    "@types/yargs-parser": "^13",
+    "yargs-parser": "^13"
   }
 }
