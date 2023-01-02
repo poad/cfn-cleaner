@@ -49,6 +49,7 @@
     "arg": "*",
     "chalk": "*",
     "chalk-template": "*",
+    "json5": ">=2.2.2",
     "log4js": "*"
   },
   "resolutions": {
