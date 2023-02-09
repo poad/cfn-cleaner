@@ -2288,9 +2288,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 electron-to-chromium@^1.4.284:
-  version "1.4.287"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.287.tgz#d121f9675aa099fd23ddbcba423ea4340f768efe"
-  integrity sha512-Dj649q67z9oYp4dj7B80hdxb1ExIvy8KvrFqjCuGqFxUHk43b+VXQVFkD5zxAFmhvA6Mu9fou6ZQjJkMSXNFFg==
+  version "1.4.290"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.290.tgz#62ddde1ea2db0dc31b6fe5898911fc85b83977fb"
+  integrity sha512-3uIkNYprKqAixFqANvs7K3zacGz6iVIMcGG1M/7hMn6Gvzxe52Xg//wRUds7GPv2uouF7EZ4Sh51fLDw+aBkHw==
 
 emittery@^0.13.1:
   version "0.13.1"
