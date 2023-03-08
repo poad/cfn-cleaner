@@ -1244,13 +1244,13 @@
     collect-v8-coverage "^1.0.0"
 
 "@jest/test-sequencer@^29.4.3":
-  version "29.4.3"
-  resolved "https://registry.yarnpkg.com/@jest/test-sequencer/-/test-sequencer-29.4.3.tgz#0862e876a22993385a0f3e7ea1cc126f208a2898"
-  integrity sha512-yi/t2nES4GB4G0mjLc0RInCq/cNr9dNwJxcGg8sslajua5Kb4kmozAc+qPLzplhBgfw1vLItbjyHzUN92UXicw==
+  version "29.5.0"
+  resolved "https://registry.yarnpkg.com/@jest/test-sequencer/-/test-sequencer-29.5.0.tgz#34d7d82d3081abd523dbddc038a3ddcb9f6d3cc4"
+  integrity sha512-yPafQEcKjkSfDXyvtgiV4pevSeyuA6MQr6ZIdVkWJly9vkqjnFfcfhRQqpD5whjoU8EORki752xQmjaqoFjzMQ==
   dependencies:
-    "@jest/test-result" "^29.4.3"
+    "@jest/test-result" "^29.5.0"
     graceful-fs "^4.2.9"
-    jest-haste-map "^29.4.3"
+    jest-haste-map "^29.5.0"
     slash "^3.0.0"
 
 "@jest/transform@^29.4.3":
