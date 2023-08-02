@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import readline from 'readline';
+import path from 'path';
 import {
   CloudFormationClient,
   DeleteStackCommand,
@@ -6,13 +9,10 @@ import {
   StackSummary,
   waitUntilStackDeleteComplete,
 } from '@aws-sdk/client-cloudformation';
-import * as fs from 'fs';
-import readline from 'readline';
 
 import arg from 'arg';
 import chalkTemplate from 'chalk-template';
 import log4js from 'log4js';
-import path from 'path';
 
 log4js.configure({
   appenders: {
