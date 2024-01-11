@@ -45,7 +45,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.489.0",
+    "@aws-sdk/client-cloudformation": "^3.490.0",
     "arg": "^5.0.2",
     "chalk": "^5.3.0",
     "chalk-template": "^1.1.0",
