@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@aws-sdk/client-cloudformation':
-    specifier: ^3.525.0
-    version: 3.525.0
+    specifier: ^3.526.0
+    version: 3.526.0
   arg:
     specifier: ^5.0.2
     version: 5.0.2
@@ -153,8 +153,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@aws-sdk/client-cloudformation@3.525.0:
-    resolution: {integrity: sha512-z+IbnnVWOoS0C5s3JfheS6zxhRfJAk57zxKMD0ofTFW/eIDxhyvd12gnTWUNZch6Lz0TeeqK/hsxVvF2p0hf4A==}
+  /@aws-sdk/client-cloudformation@3.526.0:
+    resolution: {integrity: sha512-Zz6swHfQdauuCJY3j+5SUPMFWTxgpAWN3x5dl/8jdn0Q1GdiWzZ0/5+jZr83mE7ola3UUH3LP/cw1UIljJO0ZA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -2550,7 +2550,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001593
-      electron-to-chromium: 1.4.690
+      electron-to-chromium: 1.4.691
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -2911,8 +2911,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.690:
-    resolution: {integrity: sha512-+2OAGjUx68xElQhydpcbqH50hE8Vs2K6TkAeLhICYfndb67CVH0UsZaijmRUE3rHlIxU1u0jxwhgVe6fK3YANA==}
+  /electron-to-chromium@1.4.691:
+    resolution: {integrity: sha512-vJ+/LmKja/St8Ofq4JGMFVZuwG7ECU6akjNSn2/g6nv8xbIBOWGlEs+WA8/3XaWkU0Nlyu0iFGgOxC4mpgFjgA==}
     dev: true
 
   /emittery@0.13.1:
