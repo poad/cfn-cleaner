@@ -3,7 +3,7 @@
     "target": "esnext",
     // "lib": [],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "rootDirs": [ "src" ],
     "declaration": true,
     "declarationMap": true,
@@ -14,5 +14,11 @@
 
     "strict": true,
     "alwaysStrict": true
-  }
+  },
+  "exclude": [
+    "vite.config.ts",
+    "__tests__",
+    "bin"
+  ]
+
 }
