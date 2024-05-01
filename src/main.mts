@@ -48,7 +48,7 @@ const confirm = async (): Promise<boolean> => {
   return confirm();
 };
 
-// eslint-disable-next-line max-len
+ 
 const listStacks = async (client: CloudFormationClient, nextToeken: string | undefined = undefined): Promise<StackSummary[]> => {
   const response = await client.send(new ListStacksCommand({
     StackStatusFilter: [
@@ -146,7 +146,7 @@ const sleep = async (time: number) => new Promise<void>((resolve) => {
 });
 
 function arrayChunk<T>([...array]: T[], size: number = 1): T[][] {
-  // eslint-disable-next-line max-len
+   
   return array.reduce((acc, __value, index) => (index % size ? acc : [...acc, array.slice(index, index + size)]), [] as T[][]);
 }
 
@@ -187,13 +187,13 @@ try {
     .reduce((acc, cur) => `${acc}\n${cur}`)}`);
 
   if (await confirm()) {
-    /* eslint-disable no-shadow */
+     
     const stackNames = stacks
       .map((stack) => stack.StackName)
       .filter((stackNames) => stackNames !== undefined);
-    /* eslint-enable no-shadow */
+     
 
-    /* eslint-disable no-shadow */
+     
     const resps = arrayChunk<string>(stackNames as string[], 10)
       .flatMap(
         (stackNames) => {
@@ -215,7 +215,7 @@ try {
           return resps;
         },
       );
-    /* eslint-enable no-shadow */
+     
 
     Promise.all(resps).then(() => logger.info('done'));
   } else {
