@@ -34,7 +34,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
-    "rimraf": "^5.0.9",
+    "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
@@ -43,7 +43,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.620.1",
+    "@aws-sdk/client-cloudformation": "^3.621.0",
     "arg": "^5.0.2",
     "chalk": "^5.3.0",
     "chalk-template": "^1.1.0",
