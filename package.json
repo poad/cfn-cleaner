@@ -38,12 +38,12 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
-    "vite": "^5.4.0",
+    "vite": "^5.4.1",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.624.0",
+    "@aws-sdk/client-cloudformation": "^3.632.0",
     "arg": "^5.0.2",
     "chalk": "^5.3.0",
     "chalk-template": "^1.1.0",
@@ -54,5 +54,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=8.7.1"
   },
-  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
 }
