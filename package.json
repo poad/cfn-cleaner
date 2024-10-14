@@ -36,14 +36,14 @@
     "prettier": "^3.3.3",
     "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "typescript-eslint": "^7.18.0",
     "vite": "^5.4.8",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.666.0",
+    "@aws-sdk/client-cloudformation": "^3.670.0",
     "arg": "^5.0.2",
     "chalk": "^5.3.0",
     "chalk-template": "^1.1.0",
