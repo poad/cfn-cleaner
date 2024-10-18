@@ -26,7 +26,7 @@
     "@stylistic/eslint-plugin-js": "^1.8.1",
     "@stylistic/eslint-plugin-plus": "^1.8.1",
     "@stylistic/eslint-plugin-ts": "^1.8.1",
-    "@types/node": "^20.16.11",
+    "@types/node": "^20.16.12",
     "@vitest/coverage-v8": "^1.6.0",
     "chokidar": "^3.6.0",
     "eslint": "^9.12.0",
@@ -38,12 +38,12 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
     "typescript-eslint": "^7.18.0",
-    "vite": "^5.4.8",
+    "vite": "^5.4.9",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.670.0",
+    "@aws-sdk/client-cloudformation": "^3.674.0",
     "arg": "^5.0.2",
     "chalk": "^5.3.0",
     "chalk-template": "^1.1.0",
@@ -54,5 +54,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=8.7.1"
   },
-  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }
