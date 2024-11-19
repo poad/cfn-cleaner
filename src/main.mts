@@ -221,7 +221,7 @@ try {
   } else {
     logger.info('canceled');
   }
-} catch (e) {
+} catch {
   // logger.error(e);
   process.exit(1);
 }

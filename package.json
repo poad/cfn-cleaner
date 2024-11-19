@@ -22,10 +22,10 @@
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.10.1",
-    "@stylistic/eslint-plugin-js": "^2.10.1",
-    "@stylistic/eslint-plugin-plus": "^2.10.1",
-    "@stylistic/eslint-plugin-ts": "^2.10.1",
+    "@stylistic/eslint-plugin": "^2.11.0",
+    "@stylistic/eslint-plugin-js": "^2.11.0",
+    "@stylistic/eslint-plugin-plus": "^2.11.0",
+    "@stylistic/eslint-plugin-ts": "^2.11.0",
     "@types/node": "^22.9.0",
     "@vitest/coverage-v8": "^2.1.5",
     "chokidar": "^4.0.1",
