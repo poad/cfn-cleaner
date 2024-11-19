@@ -29,7 +29,6 @@ jobs:
         version: latest
         run_install: |
           - recursive: true
-            cwd: .
             args: [--no-frozen-lockfile]
         
     - name: Build and Unittest
