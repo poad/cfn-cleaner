@@ -26,7 +26,7 @@
     "@stylistic/eslint-plugin-js": "^2.11.0",
     "@stylistic/eslint-plugin-plus": "^2.11.0",
     "@stylistic/eslint-plugin-ts": "^2.11.0",
-    "@types/node": "^22.9.2",
+    "@types/node": "^22.9.3",
     "@vitest/coverage-v8": "^2.1.5",
     "chokidar": "^4.0.1",
     "eslint": "^9.15.0",
