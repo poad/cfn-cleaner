@@ -1,3 +1,15 @@
+/**
+ * AWS CloudFormation Stack Cleanup Tool
+ * 
+ * このスクリプトは指定されたプレフィックスに一致するCloudFormationスタックを一括で削除します。
+ * 安全性のため、削除前に確認プロンプトを表示します。
+ * 
+ * @requires @aws-sdk/client-cloudformation - AWSのCloudFormation操作用SDK
+ * @requires arg - コマンドライン引数のパース
+ * @requires chalk-template - コンソール出力の装飾
+ * @requires log4js - ロギング
+ */
+
 import * as fs from 'fs';
 import readline from 'readline';
 import path from 'path';
@@ -13,7 +25,9 @@ import {
 import arg from 'arg';
 import chalkTemplate from 'chalk-template';
 import log4js from 'log4js';
+import { BackoffStrategy, withRetry } from './utils.js';
 
+// ロガーの設定
 log4js.configure({
   appenders: {
     out: {
@@ -30,6 +44,11 @@ const logger = log4js.getLogger();
 
 const rl = readline.createInterface(process.stdin, process.stdout);
 
+/**
+ * ユーザーに質問を表示し、入力を待ち受けます
+ * @param message - 表示するプロンプトメッセージ
+ * @returns ユーザーの入力値
+ */
 const question = (message: string): Promise<string> => new Promise((resolve) => {
   rl.question(message, (answer) => {
     resolve(answer);
@@ -37,6 +56,10 @@ const question = (message: string): Promise<string> => new Promise((resolve) => 
   });
 });
 
+/**
+ * 削除確認のプロンプトを表示し、ユーザーの応答を待ち受けます
+ * @returns 確認が承認された場合はtrue、それ以外はfalse
+ */
 const confirm = async (): Promise<boolean> => {
   const answer = await question('Remove Stacks? [y/n] ');
   const lowerAnswer = answer.toLowerCase();
@@ -48,32 +71,28 @@ const confirm = async (): Promise<boolean> => {
   return confirm();
 };
 
- 
+/**
+ * 指定された条件に一致するCloudFormationスタックの一覧を取得します
+ * @param client - CloudFormationクライアントインスタンス
+ * @param nextToken - ページネーショントークン
+ * @returns スタックのサマリー情報の配列
+ */
 const listStacks = async (client: CloudFormationClient, nextToeken?: string): Promise<StackSummary[]> => {
   const response = await client.send(new ListStacksCommand({
     StackStatusFilter: [
       StackStatus.CREATE_COMPLETE,
       StackStatus.CREATE_FAILED,
-      // StackStatus.CREATE_IN_PROGRESS,
       StackStatus.DELETE_FAILED,
-      // StackStatus.DELETE_IN_PROGRESS,
       StackStatus.IMPORT_COMPLETE,
       StackStatus.IMPORT_IN_PROGRESS,
       StackStatus.IMPORT_ROLLBACK_COMPLETE,
       StackStatus.IMPORT_ROLLBACK_FAILED,
-      // StackStatus.IMPORT_ROLLBACK_IN_PROGRESS,
-      // StackStatus.REVIEW_IN_PROGRESS,
       StackStatus.ROLLBACK_COMPLETE,
       StackStatus.ROLLBACK_FAILED,
-      // StackStatus.ROLLBACK_IN_PROGRESS,
       StackStatus.UPDATE_COMPLETE,
-      // StackStatus.UPDATE_COMPLETE_CLEANUP_IN_PROGRESS,
       StackStatus.UPDATE_FAILED,
-      // StackStatus.UPDATE_IN_PROGRESS,
       StackStatus.UPDATE_ROLLBACK_COMPLETE,
-      // StackStatus.UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS,
       StackStatus.UPDATE_ROLLBACK_FAILED,
-      // StackStatus.UPDATE_ROLLBACK_IN_PROGRESS,
     ],
     NextToken: nextToeken,
   }));
@@ -86,6 +105,9 @@ const listStacks = async (client: CloudFormationClient, nextToeken?: string): Pr
   return summaries;
 };
 
+/**
+ * コマンドライン引数の定義インターフェース
+ */
 interface ArgsDefinition {
   [key: string]: {
     type: StringConstructor | BooleanConstructor | NumberConstructor;
@@ -100,6 +122,9 @@ interface Aliases {
   [key: string]: string;
 }
 
+/**
+ * コマンドライン引数の定義
+ */
 const argDef: ArgsDefinition = {
   '--help': {
     type: Boolean,
@@ -117,8 +142,13 @@ const argDef: ArgsDefinition = {
     type: String,
     alias: '-r',
   },
+  '--yes': {
+    type: Boolean,
+    alias: '-y',
+  },
 };
 
+// 引数オプションの設定を生成
 const options: Options = Object.keys(argDef)
   .map((key) => {
     const target: Options = {};
@@ -127,6 +157,7 @@ const options: Options = Object.keys(argDef)
   })
   .reduce((cur, acc) => Object.assign(acc, cur));
 
+// エイリアスの設定を生成
 const aliases: Aliases = Object.keys(argDef)
   .map((key) => {
     const target: Aliases = {};
@@ -136,21 +167,27 @@ const aliases: Aliases = Object.keys(argDef)
   .reduce((cur, acc) => Object.assign(acc, cur));
 
 const argConfig = {
-  // Types
   ...options,
-
-  // Aliases
   ...aliases,
 };
 
+/**
+ * 指定された時間だけ処理を停止します
+ * @param time - 待機時間（ミリ秒）
+ */
 const sleep = async (time: number) => new Promise<void>((resolve) => {
   setTimeout(() => {
     resolve();
   }, time);
 });
 
+/**
+ * 配列を指定されたサイズのチャンクに分割します
+ * @param array - 分割する配列
+ * @param size - チャンクサイズ
+ * @returns 分割された配列の配列
+ */
 function arrayChunk<T>([...array]: T[], size: number = 1): T[][] {
-   
   return array.reduce((acc, __value, index) => (index % size ? acc : [...acc, array.slice(index, index + size)]), [] as T[][]);
 }
 
@@ -159,6 +196,7 @@ try {
 
   const packageJson = JSON.parse(Buffer.from(fs.readFileSync(path.resolve('package.json'), { flag: 'r' })).toString());
 
+  // ヘルプメッセージの定義
   const helpMessage = chalkTemplate`
   {bold USAGE}
       {dim $} {bold ${Object.keys(packageJson.bin).pop()}} [--help] --string {underline some-arg}
@@ -168,7 +206,6 @@ try {
       --prefix {underline prefix-of-stack-name}  the prefix for name of CloudFormation Stack
       --region {underline region}                the region of CloudFormation Stack
 `;
-
 
   if (args['--help'] !== undefined) {
     logger.error(helpMessage);
@@ -180,44 +217,59 @@ try {
     process.exit(0);
   }
 
-  const prefix = args['--prefix']!;
+  const prefix = args['--prefix'];
+  if (!prefix) {
+    logger.error('Prefix is required');
+    logger.error(helpMessage);
+    process.exit(1);
+  }
   logger.info(`Prefix: ${prefix}`);
 
-  const region = args['--region']!;
-  logger.info(`Region: ${region}`);
+  const region = args['--region'];
+  if (region) {
+    logger.info(`Region: ${region}`);
+  }
 
+  const yes = args['--yes']!;
+
+  // CloudFormationクライアントの初期化
   const client = new CloudFormationClient({
     region,
   });
 
+  // スタックの一覧を取得
   const stacks = (await listStacks(client))
     .filter((stack) => (prefix ? stack.StackName?.startsWith(prefix) : true));
   logger.info(`Remove stacks\n${stacks
     .map((stack) => `\t${stack.StackName}`)
     .reduce((acc, cur) => `${acc}\n${cur}`)}`);
 
-  if (await confirm()) {
-     
+  if (yes || await confirm()) {
     const stackNames = stacks
       .map((stack) => stack.StackName)
       .filter((stackNames) => stackNames !== undefined);
-     
-
-     
+    
+    // スタックを10個ずつのバッチに分けて削除
     const resps = arrayChunk<string>(stackNames as string[], 10)
       .flatMap(
         (stackNames) => {
           const resps = stackNames.map(async (StackName) => {
             logger.debug(`stack: ${StackName}`);
             return sleep(3000).then(async () => {
-              const resp = await client.send(new DeleteStackCommand({
-                StackName,
-              }))
-                .catch(
-                  (e) => {
-                    logger.error(e);
-                  },
-                );
+              // リトライロジックを含むスタック削除の実行
+              const resp = await withRetry(
+                () => client.send(new DeleteStackCommand({
+                  StackName,
+                })),
+                {},
+                {
+                  strategy: BackoffStrategy.DECORRELATED_JITTER,
+                  maxAttempts: 5,
+                  baseDelay: 10000,
+                  maxDelay: 200000,
+                  jitterFactor: 0.3
+                }
+              );
               await waitUntilStackDeleteComplete({ client, maxWaitTime: 60 * 3 }, { StackName });
               return resp;
             });
@@ -225,13 +277,11 @@ try {
           return resps;
         },
       );
-     
 
     Promise.all(resps).then(() => logger.info('done'));
   } else {
     logger.info('canceled');
   }
 } catch {
-  // logger.error(e);
   process.exit(1);
 }
