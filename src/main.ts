@@ -249,8 +249,8 @@ try {
       .map((stack) => stack.StackName)
       .filter((stackNames) => stackNames !== undefined);
     
-    // スタックを10個ずつのバッチに分けて削除
-    const resps = arrayChunk<string>(stackNames as string[], 10)
+    // スタックを3個ずつのバッチに分けて削除
+    const resps = arrayChunk<string>(stackNames as string[], 3)
       .flatMap(
         (stackNames) => {
           const resps = stackNames.map(async (StackName) => {
@@ -264,10 +264,10 @@ try {
                 {},
                 {
                   strategy: BackoffStrategy.DECORRELATED_JITTER,
-                  maxAttempts: 5,
-                  baseDelay: 10000,
-                  maxDelay: 200000,
-                  jitterFactor: 0.3
+                  maxAttempts: 3,
+                  baseDelay: 30000,
+                  maxDelay: 300000,
+                  jitterFactor: 1
                 }
               );
               await waitUntilStackDeleteComplete({ client, maxWaitTime: 60 * 3 }, { StackName });
