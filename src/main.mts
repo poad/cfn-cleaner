@@ -49,7 +49,7 @@ const confirm = async (): Promise<boolean> => {
 };
 
  
-const listStacks = async (client: CloudFormationClient, nextToeken: string | undefined = undefined): Promise<StackSummary[]> => {
+const listStacks = async (client: CloudFormationClient, nextToeken?: string): Promise<StackSummary[]> => {
   const response = await client.send(new ListStacksCommand({
     StackStatusFilter: [
       StackStatus.CREATE_COMPLETE,
@@ -78,7 +78,7 @@ const listStacks = async (client: CloudFormationClient, nextToeken: string | und
     NextToken: nextToeken,
   }));
 
-  const summaries = response.StackSummaries === undefined ? [] : response.StackSummaries;
+  const summaries = response.StackSummaries ?? [];
 
   if (response.NextToken) {
     return summaries.concat(await listStacks(client, response.NextToken));
@@ -112,6 +112,10 @@ const argDef: ArgsDefinition = {
   '--prefix': {
     type: String,
     alias: '-p',
+  },
+  '--region': {
+    type: String,
+    alias: '-r',
   },
 };
 
@@ -159,10 +163,12 @@ try {
   {bold USAGE}
       {dim $} {bold ${Object.keys(packageJson.bin).pop()}} [--help] --string {underline some-arg}
   {bold OPTIONS}
-      --help                 Shows this help message
-      --version              Print version of this module
+      --help                         Shows this help message
+      --version                      Print version of this module
       --prefix {underline prefix-of-stack-name}  the prefix for name of CloudFormation Stack
+      --region {underline region}                the region of CloudFormation Stack
 `;
+
 
   if (args['--help'] !== undefined) {
     logger.error(helpMessage);
@@ -177,7 +183,11 @@ try {
   const prefix = args['--prefix']!;
   logger.info(`Prefix: ${prefix}`);
 
+  const region = args['--region']!;
+  logger.info(`Region: ${region}`);
+
   const client = new CloudFormationClient({
+    region,
   });
 
   const stacks = (await listStacks(client))
