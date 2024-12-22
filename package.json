@@ -1,13 +1,13 @@
 {
   "name": "cfn-cleaner",
   "version": "1.0.0",
-  "main": "bin/cli.mjs",
+  "main": "bin/cli.js",
   "repository": "https://github.com/poad/cfn-cleaner.git",
   "author": "Kenji Saito <ken-yo@mbr.nifty.com>",
   "license": "MIT",
   "private": true,
   "bin": {
-    "cfn-cleaner": "bin/cli.mjs"
+    "cfn-cleaner": "bin/cli.js"
   },
   "type": "module",
   "scripts": {
@@ -16,12 +16,13 @@
     "compile": "pnpm tsc",
     "tsc": "tsc",
     "build": "pnpm clean && pnpm compile",
-    "lint": "eslint src/**/*.mts src/*.mts",
-    "start": "node --experimental-specifier-resolution=node bin/cli.mjs",
+    "lint": "eslint src/*.ts",
+    "start": "node --experimental-specifier-resolution=node bin/cli.js",
     "package": "echo Skip the packaging process",
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
+    "@aws-sdk/types": "^3.714.0",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@stylistic/eslint-plugin-js": "^2.12.1",
     "@stylistic/eslint-plugin-plus": "^2.12.1",
@@ -38,14 +39,16 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.1",
-    "vite": "^6.0.4",
+    "vite": "^6.0.5",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
   "dependencies": {
     "@aws-sdk/client-cloudformation": "^3.716.0",
+    "@aws-sdk/smithy-client": "^3.374.0",
+    "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
-    "chalk": "^5.4.0",
+    "chalk": "^5.4.1",
     "chalk-template": "^1.1.0",
     "log4js": "^6.9.1"
   },
