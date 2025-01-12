@@ -30,7 +30,7 @@
     "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^2.1.8",
     "chokidar": "^4.0.3",
-    "eslint": "^9.17.0",
+    "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -44,7 +44,7 @@
     "vitest": "^2.1.8"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.726.0",
+    "@aws-sdk/client-cloudformation": "^3.726.1",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
