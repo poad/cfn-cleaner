@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.734.0",
-    "@stylistic/eslint-plugin": "^3.0.0",
-    "@stylistic/eslint-plugin-js": "^3.0.0",
-    "@stylistic/eslint-plugin-plus": "^3.0.0",
-    "@stylistic/eslint-plugin-ts": "^3.0.0",
+    "@stylistic/eslint-plugin": "^3.0.1",
+    "@stylistic/eslint-plugin-js": "^3.0.1",
+    "@stylistic/eslint-plugin-plus": "^3.0.1",
+    "@stylistic/eslint-plugin-ts": "^3.0.1",
     "@types/node": "^22.12.0",
     "@vitest/coverage-v8": "^3.0.4",
     "chokidar": "^4.0.3",
@@ -44,7 +44,7 @@
     "vitest": "^3.0.4"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.734.0",
+    "@aws-sdk/client-cloudformation": "^3.738.0",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
