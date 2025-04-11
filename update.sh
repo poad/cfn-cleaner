@@ -20,7 +20,7 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-npx corepack use pnpm@latest && pnpm install && pnpm up && rm -rf node_modules && pnpm install --production
+npx pnpm@latest self-update && pnpm install && pnpm up && rm -rf node_modules && pnpm install --production
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}" || exit
