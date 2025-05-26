@@ -45,7 +45,7 @@
     "vitest": "^3.1.4"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.816.0",
+    "@aws-sdk/client-cloudformation": "^3.817.0",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
