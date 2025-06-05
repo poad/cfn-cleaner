@@ -24,7 +24,7 @@
   "devDependencies": {
     "@aws-sdk/types": "^3.804.0",
     "@eslint/js": "^9.27.0",
-    "@stylistic/eslint-plugin": "^4.2.0",
+    "@stylistic/eslint-plugin": "^4.4.1",
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@stylistic/eslint-plugin-plus": "^4.2.0",
     "@stylistic/eslint-plugin-ts": "^4.2.0",
