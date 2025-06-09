@@ -22,27 +22,27 @@
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^3.804.0",
-    "@eslint/js": "^9.27.0",
+    "@aws-sdk/types": "^3.821.0",
+    "@eslint/js": "^9.28.0",
     "@stylistic/eslint-plugin": "^4.4.1",
-    "@stylistic/eslint-plugin-js": "^4.2.0",
-    "@stylistic/eslint-plugin-plus": "^4.2.0",
-    "@stylistic/eslint-plugin-ts": "^4.2.0",
-    "@types/node": "^22.15.26",
-    "@vitest/coverage-v8": "^3.2.0",
+    "@stylistic/eslint-plugin-js": "^4.4.1",
+    "@stylistic/eslint-plugin-plus": "^4.4.1",
+    "@stylistic/eslint-plugin-ts": "^4.4.1",
+    "@types/node": "^22.15.30",
+    "@vitest/coverage-v8": "^3.2.2",
     "chokidar": "^4.0.3",
-    "eslint": "^9.27.0",
+    "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-prettier": "^5.4.1",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
+    "typescript-eslint": "^8.33.1",
     "vite": "^6.3.5",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.1.4"
+    "vitest": "^3.2.2"
   },
   "dependencies": {
     "@aws-sdk/client-cloudformation": "^3.826.0",
@@ -58,5 +58,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=8.7.1"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.12.1"
 }
