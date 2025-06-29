@@ -108,19 +108,13 @@ const listStacks = async (client: CloudFormationClient, nextToeken?: string): Pr
 /**
  * コマンドライン引数の定義インターフェース
  */
-interface ArgsDefinition {
-  [key: string]: {
-    type: StringConstructor | BooleanConstructor | NumberConstructor;
-    alias: string;
-  };
-}
+type ArgsDefinition = Record<string, {
+  type: StringConstructor | BooleanConstructor | NumberConstructor;
+  alias: string;
+}>;
 
-interface Options {
-  [key: string]: StringConstructor | BooleanConstructor | NumberConstructor;
-}
-interface Aliases {
-  [key: string]: string;
-}
+type Options = Record<string, StringConstructor | BooleanConstructor | NumberConstructor>;
+type Aliases = Record<string, string>;
 
 /**
  * コマンドライン引数の定義
@@ -187,7 +181,7 @@ const sleep = async (time: number) => new Promise<void>((resolve) => {
  * @param size - チャンクサイズ
  * @returns 分割された配列の配列
  */
-function arrayChunk<T>([...array]: T[], size: number = 1): T[][] {
+function arrayChunk<T>([...array]: T[], size = 1): T[][] {
   return array.reduce((acc, __value, index) => (index % size ? acc : [...acc, array.slice(index, index + size)]), [] as T[][]);
 }
 
@@ -230,7 +224,7 @@ try {
     logger.info(`Region: ${region}`);
   }
 
-  const yes = args['--yes']!;
+  const yes = args['--yes'];
 
   // CloudFormationクライアントの初期化
   const client = new CloudFormationClient({
@@ -267,8 +261,8 @@ try {
                   maxAttempts: 3,
                   baseDelay: 30000,
                   maxDelay: 300000,
-                  jitterFactor: 1
-                }
+                  jitterFactor: 1,
+                },
               );
               await waitUntilStackDeleteComplete({ client, maxWaitTime: 60 * 3 }, { StackName });
               return resp;
@@ -278,6 +272,7 @@ try {
         },
       );
 
+    // eslint-disable-next-line promise/catch-or-return
     Promise.all(resps).then(() => logger.info('done'));
   } else {
     logger.info('canceled');

@@ -4,7 +4,7 @@ import { MetadataBearer } from '@aws-sdk/types';
 enum BackoffStrategy {
   EXPONENTIAL = 'exponential',
   DECORRELATED_JITTER = 'decorrelated-jitter',
-  FULL_JITTER = 'full-jitter'
+  FULL_JITTER = 'full-jitter',
 }
 
 interface BackoffConfig {
@@ -52,6 +52,7 @@ class ExponentialBackoff implements BackoffCalculator {
     return delay - jitter + (Math.random() * jitter * 2);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   reset(): void {}
 }
 
@@ -70,11 +71,11 @@ class DecorrelatedJitterBackoff implements BackoffCalculator {
     const minDelay = this.config.baseDelay;
     const calcDelay = Math.min(
       this.config.maxDelay,
-      this.config.jitterFactor * 3 * this.lastDelay
+      this.config.jitterFactor * 3 * this.lastDelay,
     );
     
     this.lastDelay = Math.floor(
-      minDelay + (Math.random() * (calcDelay - minDelay))
+      minDelay + (Math.random() * (calcDelay - minDelay)),
     );
     
     return this.lastDelay;
@@ -97,6 +98,7 @@ class FullJitterBackoff implements BackoffCalculator {
     return Math.random() * capDelay;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   reset(): void {}
 }
 
@@ -121,13 +123,13 @@ function createBackoffCalculator(config: Required<BackoffConfig>): BackoffCalcul
 async function withRetry<TInput extends object, TOutput extends MetadataBearer>(
   operation: (params: TInput) => Promise<TOutput>,
   params: TInput,
-  options: RetryOptions = {}
+  options: RetryOptions = {},
 ): Promise<TOutput> {
   const config: Required<BackoffConfig> = {
     strategy: options.strategy ?? BackoffStrategy.EXPONENTIAL,
     baseDelay: options.baseDelay ?? 1000,
     maxDelay: options.maxDelay ?? 20000,
-    jitterFactor: options.jitterFactor ?? 0.2
+    jitterFactor: options.jitterFactor ?? 0.2,
   };
   
   const maxAttempts = options.maxAttempts ?? 3;
@@ -157,7 +159,7 @@ async function withRetry<TInput extends object, TOutput extends MetadataBearer>(
         errorName: error.name,
         errorMessage: error.message,
         attempt,
-        delay
+        delay,
       });
       
       await sleep(delay);
@@ -187,6 +189,6 @@ function isRetryableError(error: RetryableError): boolean {
 }
 
 const sleep = (ms: number): Promise<void> => 
-  new Promise(resolve => setTimeout(resolve, ms));
+  new Promise((resolve) => setTimeout(resolve, ms));
 
 export { withRetry, RetryOptions, BackoffStrategy };
