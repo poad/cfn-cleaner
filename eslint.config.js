@@ -19,7 +19,7 @@ export default tseslint.config(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
-      'bin/*.js',
+      'bin',
       'node_modules/**/*',
     ],
   },
