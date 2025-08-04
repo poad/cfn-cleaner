@@ -49,7 +49,7 @@
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
-    "chalk": "^5.4.1",
+    "chalk": "^5.5.0",
     "chalk-template": "^1.1.0",
     "log4js": "^6.9.1"
   },
