@@ -10,4 +10,3 @@
  * @requires log4js - ロギング
  */
 export {};
-//# sourceMappingURL=main.d.ts.map

@@ -18,7 +18,8 @@
     "build": "pnpm clean && pnpm compile",
     "lint": "eslint",
     "lint-fix": "eslint --fix",
-    "start": "node --experimental-specifier-resolution=node bin/cli.js",
+    "dev": "tsx src/cli.ts",
+    "start": "node bin/cli.js",
     "package": "echo Skip the packaging process",
     "all": "pnpm build && pnpm lint && pnpm test"
   },

@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    // "lib": [],
+    "lib": [],
     "module": "esnext",
     "moduleResolution": "bundler",
     "rootDirs": [ "src" ],
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "outDir": "./bin",
-    "inlineSourceMap": true,
+    "inlineSourceMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
