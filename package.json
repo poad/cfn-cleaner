@@ -12,7 +12,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest --run --coverage --passWithNoTests",
-    "clean": "rimraf bin/main*",
+    "clean": "rimraf bin",
     "compile": "pnpm tsc",
     "tsc": "tsc",
     "build": "pnpm clean && pnpm compile",
@@ -32,15 +32,13 @@
     "@vitest/coverage-v8": "^3.2.4",
     "chokidar": "^4.0.3",
     "eslint": "^9.37.0",
-    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": "^7.2.1",
-    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.0",
+    "typescript-eslint": "^8.46.1",
     "vite": "^7.1.9",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
@@ -57,7 +55,7 @@
   "engines": {
     "npm": "use pnpm please!",
     "yarn": "use pnpm please!",
-    "pnpm": ">=8.7.1"
+    "pnpm": ">=10.18.2"
   },
   "packageManager": "pnpm@10.18.2"
 }
