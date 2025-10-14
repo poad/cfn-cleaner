@@ -2,23 +2,22 @@
   "compilerOptions": {
     "target": "esnext",
     "lib": [],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "rootDirs": [ "src" ],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "declaration": true,
     "declarationMap": false,
+    "rootDir": "./src",
     "outDir": "./bin",
     "inlineSourceMap": false,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
+    "forceConsistentCasingInFileNames": false,
     "strict": true,
     "alwaysStrict": true
   },
   "exclude": [
-    "vite.config.ts",
+    "vite.config.*",
+    "vitest.config.*",
     "__tests__",
     "bin"
   ]
-
 }

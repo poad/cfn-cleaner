@@ -7,5 +7,5 @@ autoInstallPeers: true
 strictPeerDependencies: false
 
 overrides:
-  chalk@<5.6.2: '>=5.6.2'
-  chalk-template@<1.1.2: '>=1.1.2'
+  chalk@5.6.1: '>=5.6.2'
+  chalk-template@1.1.1: '>=1.1.2'
