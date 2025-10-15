@@ -24,7 +24,7 @@
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^3.901.0",
+    "@aws-sdk/types": "^3.910.0",
     "@eslint/compat": "^1.4.0",
     "@eslint/js": "^9.37.0",
     "@stylistic/eslint-plugin": "^5.4.0",
@@ -39,12 +39,12 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
-    "vite": "^7.1.9",
+    "vite": "^7.1.10",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.908.0",
+    "@aws-sdk/client-cloudformation": "^3.910.0",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
