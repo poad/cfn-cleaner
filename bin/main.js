@@ -89,6 +89,7 @@ const listStacks = async (client, nextToeken) => {
     }
     return summaries;
 };
+;
 /**
  * コマンドライン引数の定義
  */

@@ -18,6 +18,7 @@
     "vite.config.*",
     "vitest.config.*",
     "__tests__",
-    "bin"
+    "bin",
+    "*.config.ts"
   ]
 }

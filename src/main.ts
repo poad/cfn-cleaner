@@ -105,13 +105,15 @@ const listStacks = async (client: CloudFormationClient, nextToeken?: string): Pr
   return summaries;
 };
 
+interface ArgsDefinitionValueProps {
+  type: StringConstructor | BooleanConstructor | NumberConstructor;
+  alias: string;
+};
+
 /**
  * コマンドライン引数の定義インターフェース
  */
-type ArgsDefinition = Record<string, {
-  type: StringConstructor | BooleanConstructor | NumberConstructor;
-  alias: string;
-}>;
+type ArgsDefinition = Record<string, ArgsDefinitionValueProps>;
 
 type Options = Record<string, StringConstructor | BooleanConstructor | NumberConstructor>;
 type Aliases = Record<string, string>;
