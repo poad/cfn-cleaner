@@ -29,7 +29,7 @@
     "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@types/node": "^24.10.0",
-    "@vitest/coverage-v8": "^4.0.6",
+    "@vitest/coverage-v8": "^4.0.7",
     "chokidar": "^4.0.3",
     "eslint": "^9.39.1",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -42,7 +42,7 @@
     "typescript-eslint": "^8.46.3",
     "vite": "^7.1.12",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.0.6"
+    "vitest": "^4.0.7"
   },
   "dependencies": {
     "@aws-sdk/client-cloudformation": "^3.922.0",
