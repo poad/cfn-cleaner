@@ -6,7 +6,6 @@
     "moduleResolution": "nodenext",
     "declaration": true,
     "declarationMap": false,
-    "rootDir": "./src",
     "outDir": "./bin",
     "inlineSourceMap": false,
     "esModuleInterop": true,
