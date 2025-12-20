@@ -24,7 +24,7 @@
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^3.953.0",
+    "@aws-sdk/types": "^3.956.0",
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.39.2",
     "@stylistic/eslint-plugin": "^5.6.1",
@@ -45,7 +45,7 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.955.0",
+    "@aws-sdk/client-cloudformation": "^3.956.0",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
@@ -58,5 +58,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=10.18.2"
   },
-  "packageManager": "pnpm@10.26.0"
+  "packageManager": "pnpm@10.26.1"
 }
