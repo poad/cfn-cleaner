@@ -39,7 +39,7 @@
     "rimraf": "^6.1.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0",
+    "typescript-eslint": "^8.53.1",
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^6.0.4",
     "vitest": "^4.0.17"
@@ -58,5 +58,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=10.18.2"
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.1"
 }
