@@ -4,6 +4,8 @@ enablePrePostScripts: true
 
 legacyPeerDeps: true
 
+strictPeerDependencies: false
+
 onlyBuiltDependencies:
   - esbuild
 
@@ -11,5 +13,8 @@ overrides:
   chalk-template@1.1.1: '>=1.1.2'
   chalk@5.6.1: '>=5.6.2'
   fast-xml-parser@>=4.3.6 <=5.3.3: '>=5.3.4'
-
-strictPeerDependencies: false
+  # eslint: ">=10.0.0"
+  # '@eslint/js': ">=10.0.0"
+  eslint: "^9"
+  '@eslint/js': "^9"
+  '@stylistic/eslint-plugin': '>=5.0.0'
