@@ -26,12 +26,12 @@
   "devDependencies": {
     "@aws-sdk/types": "^3.973.1",
     "@eslint/compat": "^2.0.2",
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.39.2",
     "@stylistic/eslint-plugin": "^5.8.0",
     "@types/node": "^25.2.3",
     "@vitest/coverage-v8": "^4.0.18",
     "chokidar": "^5.0.0",
-    "eslint": "^10.0.0",
+    "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
@@ -58,5 +58,5 @@
     "yarn": "use pnpm please!",
     "pnpm": ">=10.18.2"
   },
-  "packageManager": "pnpm@10.29.1"
+  "packageManager": "pnpm@10.30.0"
 }

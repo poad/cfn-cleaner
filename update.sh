@@ -20,7 +20,7 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-npx -y pnpm@latest self-update && pnpm install && pnpm up && pnpm audit --fix && pnpm up && rm -rf node_modules && pnpm install --production
+npx -y pnpm@latest self-update && pnpm install && pnpm up && pnpm audit --fix && pnpm up && pnpm lint && pnpm build && rm -rf node_modules && pnpm install --production --no-frozen-lockfile
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}" || exit
