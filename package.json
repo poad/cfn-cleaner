@@ -24,11 +24,11 @@
     "all": "pnpm build && pnpm lint && pnpm test"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^3.973.3",
+    "@aws-sdk/types": "^3.973.4",
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.9.0",
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.2",
     "@vitest/coverage-v8": "^4.0.18",
     "chokidar": "^5.0.0",
     "eslint": "^10.0.2",
@@ -45,7 +45,7 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudformation": "^3.998.0",
+    "@aws-sdk/client-cloudformation": "^3.999.0",
     "@aws-sdk/smithy-client": "^3.374.0",
     "@aws-sdk/util-retry": "^3.374.0",
     "arg": "^5.0.2",
